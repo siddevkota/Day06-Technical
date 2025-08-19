@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>📺 YouTube Caption Extractor</title>
+	<link rel="stylesheet" href="style.css" />
+	<link
+	  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+	  rel="stylesheet"
+	/>
+  </head>
+  <body>
+	<div class="container">
+	  <header>
+		<h1><i class="fab fa-youtube"></i> YouTube Caption Extractor</h1>
+		<p>Extract captions from any YouTube video instantly</p>
+	  </header>
+
+	  <main>
+		<div class="input-section">
+		  <div class="input-group">
+			<input
+			  type="url"
+			  id="youtubeUrl"
+			  placeholder="https://www.youtube.com/watch?v=..."
+			  aria-label="YouTube URL"
+			/>
+			<button id="extractBtn" onclick="extractCaptions()">
+			  <i class="fas fa-download"></i>
+			  Extract Captions
+			</button>
+		  </div>
+		  <small class="hint"
+			>Supports both youtube.com and youtu.be links</small
+		  >
+		</div>
+
+		<div id="loadingSection" class="loading-section hidden">
+		  <div class="spinner"></div>
+		  <p>Extracting captions...</p>
+		</div>
+
+		<div id="videoSection" class="video-section hidden">
+		  <div class="video-header">
+			<div class="video-title" id="videoTitle"></div>
+			<div class="video-meta" id="videoMeta"></div>
+		  </div>
+		  <div class="video-container">
+			<iframe
+			  id="videoEmbed"
+			  class="video-embed"
+			  src=""
+			  title="YouTube video player"
+			  frameborder="0"
+			  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			  referrerpolicy="strict-origin-when-cross-origin"
+			  allowfullscreen
+			>
+			</iframe>
+		  </div>
+		</div>
+
+		<div id="resultSection" class="result-section hidden">
+		  <div class="result-header">
+			<h3><i class="fas fa-file-text"></i> Extracted Captions</h3>
+			<div class="result-actions">
+			  <button id="copyBtn" onclick="copyCaptions()">
+				<i class="fas fa-copy"></i> Copy
+			  </button>
+			  <button id="downloadBtn" onclick="downloadCaptions()">
+				<i class="fas fa-download"></i> Download
+			  </button>
+			</div>
+		  </div>
+		  <div class="caption-container">
+			<textarea id="captionsText" readonly></textarea>
+		  </div>
+		  <div class="video-info">
+			<span id="videoId"></span>
+			<span id="captionLength"></span>
+		  </div>
+		</div>
+
+		<div id="errorSection" class="error-section hidden">
+		  <div class="error-message">
+			<i class="fas fa-exclamation-triangle"></i>
+			<span id="errorText"></span>
+		  </div>
+		</div>
+	  </main>
+	</div>
+
+	<script src="script.js"></script>
+  </body>
+</html>
