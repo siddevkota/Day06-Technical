@@ -2,6 +2,8 @@
 
 A simple web application that extracts captions from YouTube videos instantly. Built with FastAPI backend and a clean static frontend.
 
+![App Screenshot](docs/screenshot.jpeg)
+
 ## ✨ Features
 
 - Extract captions from any YouTube video
